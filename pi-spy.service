@@ -1,0 +1,12 @@
+[Unit]
+Description=Raspberry Pi Monitoring Service
+
+[Service]
+ExecStart=/bin/bash pi-spy.sh start
+WorkingDirectory=/home/pi/pi-spy/
+StandardOutput=inherit
+StandardError=inherit
+User=pi
+
+[Install]
+WantedBy=multi-user.target
