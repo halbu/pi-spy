@@ -19,7 +19,7 @@ data_10m=(${data_10m//|/ })
 
 min_t_1d=$(echo ${data_1d[0]}°C)
 max_t_1d=$(echo ${data_1d[1]}°C)
-min_c_1d=$(echo ${data_1d[2]}°C)
+min_c_1d=$(echo ${data_1d[2]}%)
 max_c_1d=$(echo ${data_1d[3]}%)
 max_t_1h=$(echo ${data_1h[0]}°C)
 max_c_1h=$(echo ${data_1h[1]}%)
