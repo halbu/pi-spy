@@ -19,7 +19,7 @@ sudo cp ./pi-spy.service /etc/systemd/system/pi-spy.service
 sudo systemctl daemon-reload
 sudo systemctl start pi-spy
 sudo systemctl enable pi-spy
-echo "Pi-Spy service configured and enabled."
+echo "Pi-Spy monitoring service installed, enabled and running."
 
 if [ -f /usr/bin/pi-spy-cli ] ; then
     sudo rm /usr/bin/pi-spy-cli;
