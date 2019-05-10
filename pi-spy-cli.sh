@@ -44,16 +44,16 @@ max_m_10m=$(echo ${data_10m[3]}M)
 min_m_1d=$(echo ${data_1d[7]}M)
 tot_m=$(echo ${data_1h[2]}M)
 
-printf "\n"$grey"%-15s"$def" "$br"  %-14s "$br"  %-12s "$br"  %-14s "$lbr"  %-14s "$lbr"  %-14s\n" \
+printf "\n"$grey"%-16s"$def" "$br"  %-13s "$br"  %-12s "$br"  %-15s "$lbr"  %-15s "$lbr"  %-14s\n" \
 "pi-spy" "Most Recent" "Min (today)" "Max (last 10m)" "Max (last 1hr)" "Max (today)"
 
-printf $grey"----------------┤├-----------------┤├---------------┤├-----------------┼-----------------┼---------------\n"$def
+printf $grey"-----------------┤├----------------┤├---------------┤├------------------┼------------------┼---------------\n"$def
 
-printf "%-15s "$br"  "$cu"%-15s"$def" "$br"  "$lo"%-13s"$def" "$br"  "$hi"%-15s"$def" "$lbr"  "$hi"%-15s"$def" "$lbr"  "$hi"%-15s"$def"\n" \
+printf "%-16s "$br"  "$cu"%-14s"$def" "$br"  "$lo"%-13s"$def" "$br"  "$hi"%-16s"$def" "$lbr"  "$hi"%-16s"$def" "$lbr"  "$hi"%-15s"$def"\n" \
 "Temperature" $cur_t $min_t_1d $max_t_10m $max_t_1h $max_t_1d
 
-printf "%-15s "$br"  "$cu"%-14s"$def" "$br"  "$lo"%-12s"$def" "$br"  "$hi"%-14s"$def" "$lbr"  "$hi"%-14s"$def" "$lbr"  "$hi"%-14s"$def"\n" \
+printf "%-16s "$br"  "$cu"%-13s"$def" "$br"  "$lo"%-12s"$def" "$br"  "$hi"%-15s"$def" "$lbr"  "$hi"%-15s"$def" "$lbr"  "$hi"%-14s"$def"\n" \
 "CPU Utilisation" $cur_c $min_c_1d $max_c_10m $max_c_1h $max_c_1d
 
-printf "%-15s "$br"  "$cu"%-4s"$def" of "$nu"%-6s"$def" "$br"  "$lo"%-12s"$def" "$br"  "$hi"%-14s"$def" "$lbr"  "$hi"%-14s"$def" "$lbr"  "$hi"%-14s"$def"\n\n" \
+printf "%-16s "$br"  "$cu"%-4s"$def" of "$nu"%-5s"$def" "$br"  "$lo"%-12s"$def" "$br"  "$hi"%-15s"$def" "$lbr"  "$hi"%-15s"$def" "$lbr"  "$hi"%-14s"$def"\n\n" \
 "Memory Usage" $cur_m $tot_m $min_m_1d $max_m_10m $max_m_1h $max_m_1d
