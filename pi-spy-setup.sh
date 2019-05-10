@@ -10,10 +10,11 @@ sqlite3 pi-spy.db "create table readings(\
  mem_bc INT NOT NULL,\
  cpu_util INT NOT NULL,\
  timestamp DATETIME NOT NULL);"
-echo "New Pi-Spy database created."
 
+echo "New Pi-Spy database created."
 sleep 0.5s
 
+sudo systemctl stop pi-spy
 sudo rm /etc/systemd/system/pi-spy.service
 sudo cp ./pi-spy.service /etc/systemd/system/pi-spy.service
 sudo systemctl daemon-reload
