@@ -42,5 +42,5 @@ echo -e "Temp   \e[44m"$cur_t"\t\e[49m\t | 24-hour low: \e[32m"$min_t_1d"\t\e[39
 Recent maxes: \e[91m"$max_t_10m"\t\e[39m (10-minute)\t\e[91m"$max_t_1h"\t\e[39m (1-hour)\t\e[91m"$max_t_1d"\t\e[39m (24-hour)"
 echo -e "CPU%   \e[44m"$cur_c"\t\e[49m\t | 24-hour low: \e[32m"$min_c_1d"\t\e[39m | \
 Recent maxes: \e[91m"$max_c_10m"\t\e[39m (10-minute)\t\e[91m"$max_c_1h"\t\e[39m (1-hour)\t\e[91m"$max_c_1d"\t\e[39m (24-hour)"
-echo -e "Memory \e[44m"$mem_used_1h"\e[49m/\e[44m"$mem_tot"\t\e[49m | 24-hour low: \e[32m"$min_mem_1d"\t\e[39m | \
+echo -e "Memory \e[44m"$mem_used_1h"\e[49m / \e[44m"$mem_tot"\t\e[49m | 24-hour low: \e[32m"$min_mem_1d"\t\e[39m | \
 Recent maxes: \e[91m"$mem_used_10m"\t\e[39m (10-minute)\t\e[91m"$mem_used_1h"\t\e[39m (1-hour)\t\e[91m"$mem_used_1d"\t\e[39m (24-hour)"
