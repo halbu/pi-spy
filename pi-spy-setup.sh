@@ -9,6 +9,7 @@ sqlite3 pi-spy.db "create table readings(\
  mem_free INT NOT NULL,\
  mem_bc INT NOT NULL,\
  cpu_util INT NOT NULL,\
+ sdc_mem DOUBLE NOT NULL,\
  timestamp DATETIME NOT NULL);"
 
 echo "New Pi-Spy database created."
