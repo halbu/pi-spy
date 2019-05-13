@@ -20,7 +20,11 @@ I want to know if my Raspberry Pi 3 Model B is melting
 
 `pi-spy-cli` or alternatively `sqlite3 ~/pi-spy/pi-spy.db "your custom query here"`
 
+#### Flags
+ 
+ * `-x` Extended output (print additional information that is not typically subject to significant short-term change e.g. SD card memory usage)
+
 ## Todo
 
-- [ ] Monitor more stuff (SD card space?)
+- [ ] Monitor more stuff
 - [ ] Optional arguments to specify particular criteria or timespan for reporting
