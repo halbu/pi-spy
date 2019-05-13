@@ -1,3 +1,12 @@
+extended_output=0
+
+# Parse flags, if any
+while getopts 'x' flag; do
+  case "${flag}" in
+    x) extended_output=1 ;;
+  esac
+done
+
 # Path, colors, substrings
 path=~/pi-spy/pi-spy.db
 hi=$'\e[1;91m'
@@ -12,11 +21,12 @@ lbr=$grey"|"$def
 
 # Get current (i.e. most recent) readings
 maxrow=$(sqlite3 $path "select max(rowid) from readings;")
-cur=$(sqlite3 $path "select temp, cpu_util, mem_used from readings where rowid=\"$maxrow\";")
+cur=$(sqlite3 $path "select temp, cpu_util, mem_used, sdc_mem from readings where rowid=\"$maxrow\";")
 cur=(${cur//|/ })
 cur_t=$(echo ${cur[0]}°C)
 cur_c=$(echo ${cur[1]}%)
 cur_m=$(echo ${cur[2]}M)
+cur_sd=$(echo ${cur[3]}%)
 
 # Get timespan minimums and maximums
 data_1d=$(sqlite3 $path "select min(temp), max(temp), min(cpu_util), max(cpu_util), max(mem_tot), max(mem_used), max(mem_free), min(mem_used) \
@@ -47,7 +57,7 @@ tot_m=$(echo ${data_1h[2]}M)
 printf "\n"$grey"%-16s"$def" "$br"  %-13s "$br"  %-12s "$br"  %-15s "$lbr"  %-15s "$lbr"  %-14s\n" \
 "pi-spy" "Most Recent" "Min (today)" "Max (last 10m)" "Max (last 1hr)" "Max (today)"
 
-printf $grey"-----------------┤├----------------┤├---------------┤├------------------┼------------------┼---------------\n"$def
+printf $grey"╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼┤├╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼┤├╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼┤├╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼┼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼┼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼\n"$def
 
 printf "%-16s "$br"  "$cu"%-14s"$def" "$br"  "$lo"%-13s"$def" "$br"  "$hi"%-16s"$def" "$lbr"  "$hi"%-16s"$def" "$lbr"  "$hi"%-15s"$def"\n" \
 "Temperature" $cur_t $min_t_1d $max_t_10m $max_t_1h $max_t_1d
@@ -55,5 +65,13 @@ printf "%-16s "$br"  "$cu"%-14s"$def" "$br"  "$lo"%-13s"$def" "$br"  "$hi"%-16s"
 printf "%-16s "$br"  "$cu"%-13s"$def" "$br"  "$lo"%-12s"$def" "$br"  "$hi"%-15s"$def" "$lbr"  "$hi"%-15s"$def" "$lbr"  "$hi"%-14s"$def"\n" \
 "CPU Utilisation" $cur_c $min_c_1d $max_c_10m $max_c_1h $max_c_1d
 
-printf "%-16s "$br"  "$cu"%-4s"$def" of "$nu"%-5s"$def" "$br"  "$lo"%-12s"$def" "$br"  "$hi"%-15s"$def" "$lbr"  "$hi"%-15s"$def" "$lbr"  "$hi"%-14s"$def"\n\n" \
+printf "%-16s "$br"  "$cu"%-4s"$def" of "$nu"%-5s"$def" "$br"  "$lo"%-12s"$def" "$br"  "$hi"%-15s"$def" "$lbr"  "$hi"%-15s"$def" "$lbr"  "$hi"%-14s"$def"\n" \
 "Memory Usage" $cur_m $tot_m $min_m_1d $max_m_10m $max_m_1h $max_m_1d
+
+if [ $extended_output -eq "1" ] ; then
+  printf $grey"╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼┴┴╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼┴┴╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼┴┴╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼┴╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼┴╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼\n"$def
+  printf "SD Card memory usage: %s\n" $cur_sd
+fi
+
+printf "\n"
+
