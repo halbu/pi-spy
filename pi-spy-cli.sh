@@ -67,7 +67,7 @@ tot_m=$(echo ${data_1h[2]}M)
 printf "\n"$grey"%-10s"$def" "$br"  %-13s "$br"  %-10s "$br"  %-10s "$lbr"  %-10s "$lbr"  %-12s\n" \
 "pi-spy" "Most Recent" "Min (24h)" "Max (10m)" "Max (1hr)" "Max (24h)"
 
-printf $grey"╼╼╼╼╼╼╼╼╼╼╼┤├╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼┤├╼╼╼╼╼╼╼╼╼╼╼╼╼┤├╼╼╼╼╼╼╼╼╼╼╼╼╼┼╼╼╼╼╼╼╼╼╼╼╼╼╼┼╼╼╼╼╼╼╼╼╼╼╼╼\n"$def
+printf $grey"───────────┤├────────────────┤├─────────────┤├─────────────┼─────────────┼────────────\n"$def
 
 printf "%-10s "$br"  "$cu"%-14s"$def" "$br"  "$lo"%-11s"$def" "$br"  "$hi"%-11s"$def" "$lbr"  "$hi"%-11s"$def" "$lbr"  "$hi"%-15s"$def"\n" \
 "Core Temp" $cur_t $min_t_1d $max_t_10m $max_t_1h $max_t_1d
@@ -79,7 +79,7 @@ printf "%-10s "$br"  "$cu"%-4s"$def" of "$nu"%-5s"$def" "$br"  "$lo"%-10s"$def" 
 "RAM Usage" $cur_m $tot_m $min_m_1d $max_m_10m $max_m_1h $max_m_1d
 
 if [ $extended_output -eq "1" ] ; then
-  printf $grey"╼╼╼╼╼╼╼╼╼╼╼┴┴╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼╼┴┴╼╼╼╼╼╼╼╼╼╼╼╼╼┴┴╼╼╼╼╼╼╼╼╼╼╼╼╼┴╼╼╼╼╼╼╼╼╼╼╼╼╼┴╼╼╼╼╼╼╼╼╼╼╼╼\n"$def
+  printf $grey"───────────┴┴────────────────┴┴─────────────┴┴─────────────┴─────────────┴────────────\n"$def
   printf "SD Card memory usage: %s\n" $cur_sd
 fi
 
