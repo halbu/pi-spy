@@ -2,7 +2,7 @@
 
 ![](pi-spy.gif)
 
-Monitoring service and command-line tool for Raspberry Pi. Stores periodic snapshots of temperature, CPU and memory use in a sqlite3 database.
+Monitoring service and command-line tool for Raspberry Pi. Stores periodic snapshots of temperature, CPU load, RAM usage, and SD card space in a sqlite3 database.
 
 ## Motivation
 
