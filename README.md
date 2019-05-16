@@ -28,3 +28,4 @@ I want to know if my Raspberry Pi 3 Model B is melting
 
 - [ ] Monitor more stuff
 - [ ] Optional arguments to specify particular criteria or timespan for reporting
+- [ ] Install to somewhere more appropriate than `/usr/bin`
